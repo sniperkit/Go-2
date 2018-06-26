@@ -1,14 +1,16 @@
 language: go
 
 go:
+  - 1.10.x
+  - 1.9.x
   - 1.8.x
   - 1.x
 
 before_install:
-  - go get -t -v ./...
+  - go get -t -v ./pkg/...
 
 script:
-  - ./test.sh
+  - ./shared/scripts/test.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
